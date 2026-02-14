@@ -1,6 +1,17 @@
+---
+const photos = [
+  { src: 'https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=1200&q=80', alt: 'Villa la Angostura - lago' },
+  { src: 'https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=1200&q=80', alt: 'La Casita - exterior' },
+  { src: 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=1200&q=80', alt: 'El Container - exterior' },
+  { src: 'https://images.unsplash.com/photo-1510798831971-661eb04b3739?w=1200&q=80', alt: 'Patagonia - entorno' },
+];
+---
+
 <section class="py-16 sm:py-20">
   <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
     <div class="flex flex-col gap-16">
+
+      <!-- Texto y botón -->
       <div class="flex flex-col items-start gap-8 sm:gap-10">
         <div class="flex max-w-xl flex-col items-start gap-4 sm:gap-6">
           <h1 class="text-4xl font-medium tracking-tight sm:text-5xl lg:text-6xl">
@@ -11,23 +22,78 @@
             todo lo que necesitás para descansar y disfrutar la montaña patagónica.
           </p>
         </div>
-
-        <href="
-          reservas"
-          class="inline-flex items-center justify-center rounded-full border border-transparent
-        bg-primary-600 px-5 py-3 text-base font-medium text-white transition hover:bg-primary-700 dark:bg-primary-400
-        dark:text-primary-950 dark:hover:bg-primary-300"
+        <a
+          href="/reservas"
+          class="inline-flex items-center justify-center rounded-full border border-transparent bg-primary-600 px-5 py-3 text-base font-medium text-white transition hover:bg-primary-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600 dark:bg-primary-400 dark:text-primary-950 dark:hover:bg-primary-300"
         >
           Reservar
-        </href=">
+        </a>
       </div>
-      <img
-        class="h-auto w-full rounded-3xl"
-        width="1280"
-        height="640"
-        src="/assets/hero.webp"
-        alt="Hero picture"
-      />
+
+      <!-- Carrusel -->
+      <div
+        x-data="{
+          current: 0,
+          total: 4,
+          next() { this.current = (this.current + 1) % this.total },
+          prev() { this.current = (this.current - 1 + this.total) % this.total }
+        }"
+        class="relative overflow-hidden rounded-3xl"
+      >
+        {photos.map((photo, i) => (
+          <div
+            x-show={`current === ${i}`}
+            x-transition:enter="transition ease-out duration-500"
+            x-transition:enter-start="opacity-0"
+            x-transition:enter-end="opacity-100"
+            x-transition:leave="transition ease-in duration-300"
+            x-transition:leave-start="opacity-100"
+            x-transition:leave-end="opacity-0"
+            class="w-full"
+          >
+            <img
+              src={photo.src}
+              alt={photo.alt}
+              class="h-[400px] w-full object-cover sm:h-[500px] lg:h-[600px]"
+            />
+          </div>
+        ))}
+
+        <!-- Botón anterior -->
+        <button
+          @click="prev()"
+          class="absolute left-4 top-1/2 -translate-y-1/2 flex h-12 w-12 items-center justify-center rounded-full bg-primary-50/80 dark:bg-primary-950/80 text-primary-950 dark:text-primary-200 backdrop-blur-sm transition hover:bg-primary-50 dark:hover:bg-primary-950"
+          aria-label="Foto anterior"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5">
+            <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6z"/>
+          </svg>
+        </button>
+
+        <!-- Botón siguiente -->
+        <button
+          @click="next()"
+          class="absolute right-4 top-1/2 -translate-y-1/2 flex h-12 w-12 items-center justify-center rounded-full bg-primary-50/80 dark:bg-primary-950/80 text-primary-950 dark:text-primary-200 backdrop-blur-sm transition hover:bg-primary-50 dark:hover:bg-primary-950"
+          aria-label="Foto siguiente"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5">
+            <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/>
+          </svg>
+        </button>
+
+        <!-- Indicadores -->
+        <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+          {photos.map((_, i) => (
+            <button
+              @click={`current = ${i}`}
+              :class={`current === ${i} ? 'bg-primary-50 dark:bg-primary-200 w-6' : 'bg-primary-50/50 dark:bg-primary-200/50 w-2'`}
+              class="h-2 rounded-full transition-all duration-300"
+              aria-label={`Ir a foto ${i + 1}`}
+            ></button>
+          ))}
+        </div>
+      </div>
+
     </div>
   </div>
 </section>

@@ -1,0 +1,163 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const photos = [
+  { src: 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=1200&q=80', alt: 'El Container - exterior' },
+  { src: 'https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=1200&q=80', alt: 'El Container - living' },
+  { src: 'https://images.unsplash.com/photo-1560185007-cde436f6a4d0?w=1200&q=80', alt: 'El Container - dormitorio' },
+  { src: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1200&q=80', alt: 'El Container - baño' },
+  { src: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&q=80', alt: 'El Container - cocina' },
+  { src: 'https://images.unsplash.com/photo-1510798831971-661eb04b3739?w=1200&q=80', alt: 'El Container - vista' },
+  { src: 'https://images.unsplash.com/photo-1501183638710-841dd1904471?w=1200&q=80', alt: 'El Container - terraza' },
+  { src: 'https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=1200&q=80', alt: 'El Container - entorno' },
+];
+
+const servicios = [
+  { icon: '📶', nombre: 'Wi-Fi fibra óptica' },
+  { icon: '🔥', nombre: 'Calefacción a gas' },
+  { icon: '📺', nombre: 'TV LED 32" (Netflix, Spotify Premium)' },
+  { icon: '🛋️', nombre: 'Futon' },
+  { icon: '📦', nombre: 'Microondas' },
+  { icon: '🍳', nombre: 'Cocina / Horno' },
+  { icon: '❄️', nombre: 'Heladera con freezer' },
+  { icon: '🍽️', nombre: 'Vajilla completa' },
+  { icon: '🛏️', nombre: 'Ropa de cama y baño' },
+  { icon: '🍞', nombre: 'Tostadora' },
+  { icon: '☕', nombre: 'Pava eléctrica' },
+  { icon: '☕', nombre: 'Cafetera de filtro' },
+  { icon: '👕', nombre: 'Tender seca ropa' },
+  { icon: '🔥', nombre: 'Parrilla de piso' },
+  { icon: '🪑', nombre: 'Mesas y sillas de jardín' },
+  { icon: '🐾', nombre: 'Pet friendly' },
+];
+---
+
+<Layout
+  description="El Container — alojamiento único en Villa la Angostura. Container marítimo reciclado con todas las comodidades."
+  title="El Container · La Casita Patagonia"
+>
+
+  <!-- Hero -->
+  <section class="py-16 sm:py-20">
+    <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+      <div class="flex flex-col gap-4 sm:gap-6">
+        <div class="flex items-center gap-3">
+          <span class="text-primary-950/50 dark:text-primary-200/50 text-sm font-medium uppercase tracking-widest">Alojamiento</span>
+        </div>
+        <h1 class="text-4xl font-medium tracking-tight sm:text-5xl lg:text-6xl">El Container</h1>
+        <p class="max-w-2xl text-lg text-primary-950/70 dark:text-primary-200/70 sm:text-xl">
+          Un container marítimo HC reciclado convertido en un espacio único. 45m² con diseño industrial, todas las comodidades y rodeado de naturaleza patagónica en Villa la Angostura.
+        </p>
+        <div class="flex flex-wrap gap-3 mt-2">
+          <span class="rounded-full bg-primary-500/10 dark:bg-primary-400/10 px-4 py-2 text-sm font-medium">2 huéspedes</span>
+          <span class="rounded-full bg-primary-500/10 dark:bg-primary-400/10 px-4 py-2 text-sm font-medium">45m²</span>
+          <span class="rounded-full bg-primary-500/10 dark:bg-primary-400/10 px-4 py-2 text-sm font-medium">🐾 Pet friendly</span>
+          <span class="rounded-full bg-primary-500/10 dark:bg-primary-400/10 px-4 py-2 text-sm font-medium">Sommier dos plazas</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Carrusel -->
+  <section class="pb-16 sm:pb-20">
+    <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+      <div
+        x-data="{
+          current: 0,
+          total: 8,
+          next() { this.current = (this.current + 1) % this.total },
+          prev() { this.current = (this.current - 1 + this.total) % this.total }
+        }"
+        class="relative overflow-hidden rounded-3xl"
+      >
+        <!-- Fotos -->
+        {photos.map((photo, i) => (
+          <div
+            x-show={`current === ${i}`}
+            x-transition:enter="transition ease-out duration-500"
+            x-transition:enter-start="opacity-0"
+            x-transition:enter-end="opacity-100"
+            x-transition:leave="transition ease-in duration-300"
+            x-transition:leave-start="opacity-100"
+            x-transition:leave-end="opacity-0"
+            class="w-full"
+          >
+            <img
+              src={photo.src}
+              alt={photo.alt}
+              class="h-[400px] w-full object-cover sm:h-[500px] lg:h-[600px]"
+            />
+          </div>
+        ))}
+
+        <!-- Botón anterior -->
+        <button
+          @click="prev()"
+          class="absolute left-4 top-1/2 -translate-y-1/2 flex h-12 w-12 items-center justify-center rounded-full bg-primary-50/80 dark:bg-primary-950/80 text-primary-950 dark:text-primary-200 transition hover:bg-primary-50 dark:hover:bg-primary-950 backdrop-blur-sm"
+          aria-label="Foto anterior"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5">
+            <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6z"/>
+          </svg>
+        </button>
+
+        <!-- Botón siguiente -->
+        <button
+          @click="next()"
+          class="absolute right-4 top-1/2 -translate-y-1/2 flex h-12 w-12 items-center justify-center rounded-full bg-primary-50/80 dark:bg-primary-950/80 text-primary-950 dark:text-primary-200 transition hover:bg-primary-50 dark:hover:bg-primary-950 backdrop-blur-sm"
+          aria-label="Foto siguiente"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5">
+            <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/>
+          </svg>
+        </button>
+
+        <!-- Indicadores -->
+        <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+          {photos.map((_, i) => (
+            <button
+              @click={`current = ${i}`}
+              :class={`current === ${i} ? 'bg-primary-50 dark:bg-primary-200 w-6' : 'bg-primary-50/50 dark:bg-primary-200/50 w-2'`}
+              class="h-2 rounded-full transition-all duration-300"
+              aria-label={`Ir a foto ${i + 1}`}
+            ></button>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Servicios -->
+  <section class="pb-16 sm:pb-20">
+    <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+      <h2 class="mb-8 text-2xl font-medium tracking-tight sm:text-3xl">Comodidades</h2>
+      <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+        {servicios.map((s) => (
+          <div class="flex items-center gap-3 rounded-2xl bg-primary-500/10 dark:bg-primary-400/10 px-4 py-4">
+            <span class="text-xl">{s.icon}</span>
+            <span class="text-sm font-medium">{s.nombre}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Reservar -->
+  <section class="pb-16 sm:pb-20">
+    <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+      <div class="flex flex-col gap-4 rounded-3xl bg-primary-500/10 dark:bg-primary-400/10 p-8 sm:flex-row sm:items-center sm:justify-between">
+        <div>
+          <p class="text-2xl font-medium">U$D 50 <span class="text-base font-normal text-primary-950/60 dark:text-primary-200/60">/ noche · temporada baja</span></p>
+          <p class="mt-1 text-primary-950/60 dark:text-primary-200/60">Consultá disponibilidad para tu fecha</p>
+        </div>
+        <a
+          href="/reservas"
+          class="inline-flex shrink-0 items-center justify-center rounded-full border border-transparent bg-primary-600 px-6 py-3 text-base font-medium text-white transition hover:bg-primary-700 dark:bg-primary-400 dark:text-primary-950 dark:hover:bg-primary-300"
+        >
+          Reservar
+        </a>
+      </div>
+    </div>
+  </section>
+
+</Layout>
