@@ -47,14 +47,8 @@ const links = [
         href="/"
         class="rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary-950 dark:group-focus-visible:outline-primary-200"
       >
-        <span class="sr-only">Stone</span>
-        <img
-          class="h-8 w-auto"
-          width="65"
-          height="40"
-          :src="$store.theme.isDark ? '/assets/logo-inverted.svg' : '/assets/logo.svg'"
-          alt="Stone"
-        />
+        <span class="sr-only">La Casita Patagonia</span>
+        <img class="h-16 w-auto" width="65" height="40" src="/logo.svg" alt="La Casita Patagonia" />
       </a>
     </div>
 
@@ -109,15 +103,13 @@ const links = [
     x-collapse.duration.500ms
   >
     <div class="grid grid-cols-1 gap-16 pb-24 pt-6 lg:grid-cols-2 lg:pt-12">
-      <div
-        class="hidden items-center justify-center rounded-3xl bg-primary-500/10 px-6 py-8 dark:bg-primary-400/10 lg:flex"
-      >
-        <p
-          class="max-w-sm text-xl italic leading-loose text-primary-950/70 dark:text-primary-200/70"
-        >
-          <span class="font-medium">Stone</span> is a premium Astro theme specially designed for
-          Business, Marketing, SaaS and Startup websites.
-        </p>
+      <!-- Foto -->
+      <div class="hidden overflow-hidden rounded-3xl lg:block">
+        <img
+          src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=800&q=80"
+          alt="La Casita Patagonia"
+          class="h-full w-full object-cover"
+        />
       </div>
 
       <!-- Navigation -->
