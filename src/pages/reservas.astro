@@ -1,0 +1,219 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  description="Reservá tu estadía en La Casita o El Container. Alojamiento turístico en la Patagonia."
+  title="Reservas · La Casita & El Container"
+>
+  <section class="py-16 sm:py-20">
+    <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+      <!-- Título -->
+      <div class="mb-12 flex flex-col gap-4">
+        <h1 class="text-4xl font-medium tracking-tight sm:text-5xl">Reservas</h1>
+        <p class="max-w-xl text-lg text-primary-950/70 dark:text-primary-200/70 sm:text-xl">
+          Elegí tu alojamiento, seleccioná las fechas y consultanos disponibilidad por WhatsApp.
+        </p>
+      </div>
+
+      <!-- Fechas -->
+      <div class="mb-16 grid max-w-xl grid-cols-1 gap-4 sm:grid-cols-2">
+        <div>
+          <label for="fecha-ingreso" class="mb-2 block text-sm font-medium">Fecha de ingreso</label>
+          <input
+            type="date"
+            id="fecha-ingreso"
+            name="fecha-ingreso"
+            class="block w-full appearance-none rounded-md border-0 bg-primary-50 px-4 py-4 text-base ring-1 ring-primary-900/40 transition hover:ring-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-600 dark:bg-primary-950 dark:ring-primary-200/40 dark:hover:ring-primary-400 dark:focus:ring-primary-400"
+          />
+        </div>
+        <div>
+          <label for="fecha-salida" class="mb-2 block text-sm font-medium">Fecha de salida</label>
+          <input
+            type="date"
+            id="fecha-salida"
+            name="fecha-salida"
+            class="block w-full appearance-none rounded-md border-0 bg-primary-50 px-4 py-4 text-base ring-1 ring-primary-900/40 transition hover:ring-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-600 dark:bg-primary-950 dark:ring-primary-200/40 dark:hover:ring-primary-400 dark:focus:ring-primary-400"
+          />
+        </div>
+      </div>
+
+      <!-- Alojamientos -->
+      <div class="grid grid-cols-1 gap-12 lg:grid-cols-2">
+        <!-- La Casita -->
+        <div class="flex flex-col gap-6 rounded-3xl bg-primary-500/10 p-8 dark:bg-primary-400/10">
+          <div>
+            <h2 class="text-2xl font-medium tracking-tight sm:text-3xl">La Casita</h2>
+            <p class="mt-1 text-sm text-primary-950/60 dark:text-primary-200/60">
+              Alojamiento acogedor con losa radiante
+            </p>
+          </div>
+
+          <!-- Detalles rápidos -->
+          <div class="grid grid-cols-3 gap-4 text-center">
+            <div class="flex flex-col gap-1">
+              <span class="text-2xl font-medium">2</span>
+              <span class="text-xs text-primary-950/60 dark:text-primary-200/60">Huéspedes</span>
+            </div>
+            <div class="flex flex-col gap-1">
+              <span class="text-2xl font-medium">40m²</span>
+              <span class="text-xs text-primary-950/60 dark:text-primary-200/60">Superficie</span>
+            </div>
+            <div class="flex flex-col gap-1">
+              <span class="text-2xl font-medium">🐾</span>
+              <span class="text-xs text-primary-950/60 dark:text-primary-200/60">Pet friendly</span>
+            </div>
+          </div>
+
+          <div class="border-t border-primary-900/10 pt-4 dark:border-primary-300/10">
+            <p class="mb-3 text-sm font-medium">Cama</p>
+            <p class="text-sm text-primary-950/70 dark:text-primary-200/70">Sommier dos plazas</p>
+          </div>
+
+          <!-- Comodidades -->
+          <div class="border-t border-primary-900/10 pt-4 dark:border-primary-300/10">
+            <p class="mb-3 text-sm font-medium">Comodidades</p>
+            <ul class="grid grid-cols-1 gap-2 text-sm text-primary-950/70 dark:text-primary-200/70">
+              <li class="flex items-center gap-2"><span>✓</span> Wi-Fi Starlink</li>
+              <li class="flex items-center gap-2"><span>✓</span> Calefacción por losa radiante</li>
+              <li class="flex items-center gap-2">
+                <span>✓</span> TV LED 32" (Netflix, Spotify Premium)
+              </li>
+              <li class="flex items-center gap-2"><span>✓</span> Sillon dos cuerpos</li>
+              <li class="flex items-center gap-2"><span>✓</span> Microondas</li>
+              <li class="flex items-center gap-2"><span>✓</span> Cocina / Horno eléctrico</li>
+              <li class="flex items-center gap-2"><span>✓</span> Heladera con freezer</li>
+              <li class="flex items-center gap-2"><span>✓</span> Vajilla completa</li>
+              <li class="flex items-center gap-2"><span>✓</span> Ropa de cama y baño</li>
+              <li class="flex items-center gap-2"><span>✓</span> Tostadora</li>
+              <li class="flex items-center gap-2"><span>✓</span> Pava eléctrica</li>
+              <li class="flex items-center gap-2"><span>✓</span> Cafetera de filtro</li>
+              <li class="flex items-center gap-2"><span>✓</span> Parrilla de piso</li>
+              <li class="flex items-center gap-2"><span>✓</span> Fondo privado exclusivo</li>
+              <li class="flex items-center gap-2"><span>✓</span> Mesas y sillas de jardín</li>
+            </ul>
+          </div>
+
+          <div
+            class="flex items-center justify-between border-t border-primary-900/10 pt-4 dark:border-primary-300/10"
+          >
+            <div>
+              <span class="text-2xl font-medium">U$D 50</span>
+              <p class="mt-1 text-xs text-primary-950/60 dark:text-primary-200/60">
+                Precio en temporada baja
+              </p>
+            </div>
+            <a
+              href="https://wa.link/7yv5jb"
+              target="_blank"
+              rel="noopener"
+              id="btn-casita"
+              class="inline-flex items-center justify-center rounded-full border border-transparent bg-primary-600 px-5 py-3 text-base font-medium text-white transition hover:bg-primary-700 dark:bg-primary-400 dark:text-primary-950 dark:hover:bg-primary-300"
+            >
+              Reservar por WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <!-- El Container -->
+        <div class="flex flex-col gap-6 rounded-3xl bg-primary-500/10 p-8 dark:bg-primary-400/10">
+          <div>
+            <h2 class="text-2xl font-medium tracking-tight sm:text-3xl">El Container</h2>
+            <p class="mt-1 text-sm text-primary-950/60 dark:text-primary-200/60">
+              Container marítimo HC reciclado con todas las comodidades
+            </p>
+          </div>
+
+          <!-- Detalles rápidos -->
+          <div class="grid grid-cols-3 gap-4 text-center">
+            <div class="flex flex-col gap-1">
+              <span class="text-2xl font-medium">2</span>
+              <span class="text-xs text-primary-950/60 dark:text-primary-200/60">Huéspedes</span>
+            </div>
+            <div class="flex flex-col gap-1">
+              <span class="text-2xl font-medium">43m²</span>
+              <span class="text-xs text-primary-950/60 dark:text-primary-200/60">Superficie</span>
+            </div>
+            <div class="flex flex-col gap-1">
+              <span class="text-2xl font-medium">🐾</span>
+              <span class="text-xs text-primary-950/60 dark:text-primary-200/60">Pet friendly</span>
+            </div>
+          </div>
+
+          <div class="border-t border-primary-900/10 pt-4 dark:border-primary-300/10">
+            <p class="mb-3 text-sm font-medium">Cama</p>
+            <p class="text-sm text-primary-950/70 dark:text-primary-200/70">Sommier dos plazas</p>
+          </div>
+
+          <!-- Comodidades -->
+          <div class="border-t border-primary-900/10 pt-4 dark:border-primary-300/10">
+            <p class="mb-3 text-sm font-medium">Comodidades</p>
+            <ul class="grid grid-cols-1 gap-2 text-sm text-primary-950/70 dark:text-primary-200/70">
+              <li class="flex items-center gap-2"><span>✓</span> Wi-Fi fibra óptica</li>
+              <li class="flex items-center gap-2"><span>✓</span> Calefacción a gas</li>
+              <li class="flex items-center gap-2">
+                <span>✓</span> TV LED 32" (Netflix, Spotify Premium)
+              </li>
+              <li class="flex items-center gap-2"><span>✓</span> Futon</li>
+              <li class="flex items-center gap-2"><span>✓</span> Microondas</li>
+              <li class="flex items-center gap-2"><span>✓</span> Cocina / Horno</li>
+              <li class="flex items-center gap-2"><span>✓</span> Heladera con freezer</li>
+              <li class="flex items-center gap-2"><span>✓</span> Vajilla completa</li>
+              <li class="flex items-center gap-2"><span>✓</span> Ropa de cama y baño</li>
+              <li class="flex items-center gap-2"><span>✓</span> Tostadora</li>
+              <li class="flex items-center gap-2"><span>✓</span> Pava eléctrica</li>
+              <li class="flex items-center gap-2"><span>✓</span> Cafetera de filtro</li>
+              <li class="flex items-center gap-2"><span>✓</span> Tender seca ropa</li>
+              <li class="flex items-center gap-2"><span>✓</span> Parrilla de piso</li>
+              <li class="flex items-center gap-2"><span>✓</span> Mesas y sillas de jardín</li>
+            </ul>
+          </div>
+
+          <div
+            class="flex items-center justify-between border-t border-primary-900/10 pt-4 dark:border-primary-300/10"
+          >
+            <div>
+              <span class="text-2xl font-medium">U$D 50</span>
+              <p class="mt-1 text-xs text-primary-950/60 dark:text-primary-200/60">
+                Precio en temporada baja
+              </p>
+            </div>
+            <a
+              href="https://wa.link/7yv5jb"
+              target="_blank"
+              rel="noopener"
+              id="btn-container"
+              class="inline-flex items-center justify-center rounded-full border border-transparent bg-primary-600 px-5 py-3 text-base font-medium text-white transition hover:bg-primary-700 dark:bg-primary-400 dark:text-primary-950 dark:hover:bg-primary-300"
+            >
+              Reservar por WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function buildWhatsAppLink(alojamiento) {
+      const ingreso = document.getElementById('fecha-ingreso')?.value;
+      const salida = document.getElementById('fecha-salida')?.value;
+
+      let mensaje = `Hola! Me gustaría consultar disponibilidad para ${alojamiento}`;
+      if (ingreso) mensaje += `, ingreso: ${ingreso}`;
+      if (salida) mensaje += `, salida: ${salida}`;
+      mensaje += '.';
+
+      return `https://wa.me/+5491138587048?text=${encodeURIComponent(mensaje)}`;
+    }
+
+    document.getElementById('btn-casita')?.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.open(buildWhatsAppLink('La Casita'), '_blank');
+    });
+
+    document.getElementById('btn-container')?.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.open(buildWhatsAppLink('El Container'), '_blank');
+    });
+  </script>
+</Layout>
