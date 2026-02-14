@@ -48,8 +48,6 @@ import Layout from '../layouts/Layout.astro';
               Alojamiento acogedor con losa radiante
             </p>
           </div>
-
-          <!-- Detalles rápidos -->
           <div class="grid grid-cols-3 gap-4 text-center">
             <div class="flex flex-col gap-1">
               <span class="text-2xl font-medium">2</span>
@@ -64,13 +62,10 @@ import Layout from '../layouts/Layout.astro';
               <span class="text-xs text-primary-950/60 dark:text-primary-200/60">Pet friendly</span>
             </div>
           </div>
-
           <div class="border-t border-primary-900/10 pt-4 dark:border-primary-300/10">
             <p class="mb-3 text-sm font-medium">Cama</p>
             <p class="text-sm text-primary-950/70 dark:text-primary-200/70">Sommier dos plazas</p>
           </div>
-
-          <!-- Comodidades -->
           <div class="border-t border-primary-900/10 pt-4 dark:border-primary-300/10">
             <p class="mb-3 text-sm font-medium">Comodidades</p>
             <ul class="grid grid-cols-1 gap-2 text-sm text-primary-950/70 dark:text-primary-200/70">
@@ -93,7 +88,6 @@ import Layout from '../layouts/Layout.astro';
               <li class="flex items-center gap-2"><span>✓</span> Mesas y sillas de jardín</li>
             </ul>
           </div>
-
           <div
             class="flex items-center justify-between border-t border-primary-900/10 pt-4 dark:border-primary-300/10"
           >
@@ -104,7 +98,7 @@ import Layout from '../layouts/Layout.astro';
               </p>
             </div>
             <a
-              href="https://wa.link/7yv5jb"
+              href="#"
               target="_blank"
               rel="noopener"
               id="btn-casita"
@@ -114,6 +108,7 @@ import Layout from '../layouts/Layout.astro';
             </a>
           </div>
         </div>
+        <!-- Fin La Casita -->
 
         <!-- El Container -->
         <div class="flex flex-col gap-6 rounded-3xl bg-primary-500/10 p-8 dark:bg-primary-400/10">
@@ -123,8 +118,6 @@ import Layout from '../layouts/Layout.astro';
               Container marítimo HC reciclado con todas las comodidades
             </p>
           </div>
-
-          <!-- Detalles rápidos -->
           <div class="grid grid-cols-3 gap-4 text-center">
             <div class="flex flex-col gap-1">
               <span class="text-2xl font-medium">2</span>
@@ -139,13 +132,10 @@ import Layout from '../layouts/Layout.astro';
               <span class="text-xs text-primary-950/60 dark:text-primary-200/60">Pet friendly</span>
             </div>
           </div>
-
           <div class="border-t border-primary-900/10 pt-4 dark:border-primary-300/10">
             <p class="mb-3 text-sm font-medium">Cama</p>
             <p class="text-sm text-primary-950/70 dark:text-primary-200/70">Sommier dos plazas</p>
           </div>
-
-          <!-- Comodidades -->
           <div class="border-t border-primary-900/10 pt-4 dark:border-primary-300/10">
             <p class="mb-3 text-sm font-medium">Comodidades</p>
             <ul class="grid grid-cols-1 gap-2 text-sm text-primary-950/70 dark:text-primary-200/70">
@@ -168,7 +158,6 @@ import Layout from '../layouts/Layout.astro';
               <li class="flex items-center gap-2"><span>✓</span> Mesas y sillas de jardín</li>
             </ul>
           </div>
-
           <div
             class="flex items-center justify-between border-t border-primary-900/10 pt-4 dark:border-primary-300/10"
           >
@@ -179,7 +168,7 @@ import Layout from '../layouts/Layout.astro';
               </p>
             </div>
             <a
-              href="https://wa.link/7yv5jb"
+              href="#"
               target="_blank"
               rel="noopener"
               id="btn-container"
@@ -189,31 +178,54 @@ import Layout from '../layouts/Layout.astro';
             </a>
           </div>
         </div>
+        <!-- Fin El Container -->
+      </div>
+      <!-- Fin grid alojamientos -->
+
+      <!-- Estadías mensuales -->
+      <div
+        class="mt-12 flex flex-col gap-4 rounded-3xl bg-primary-500/10 p-8 dark:bg-primary-400/10 sm:flex-row sm:items-center sm:justify-between"
+      >
+        <div>
+          <h3 class="text-xl font-medium tracking-tight">Estadías mensuales en temporada baja</h3>
+          <p class="mt-2 max-w-lg text-base text-primary-950/70 dark:text-primary-200/70">
+            Ofrecemos estadías mensuales de carácter turístico durante la temporada baja. Ideal para
+            quienes quieren disfrutar la Patagonia con más tiempo y tranquilidad.
+          </p>
+        </div>
+        <a
+          href="https://wa.me/+5491138587048?text=Hola!%20Me%20gustar%C3%ADa%20consultar%20sobre%20estad%C3%ADas%20mensuales%20en%20temporada%20baja."
+          target="_blank"
+          rel="noopener"
+          class="inline-flex shrink-0 items-center justify-center rounded-full border border-transparent bg-primary-600 px-5 py-3 text-base font-medium text-white transition hover:bg-primary-700 dark:bg-primary-400 dark:text-primary-950 dark:hover:bg-primary-300"
+        >
+          Consultanos por WhatsApp
+        </a>
       </div>
     </div>
   </section>
-
-  <script>
-    function buildWhatsAppLink(alojamiento) {
-      const ingreso = document.getElementById('fecha-ingreso')?.value;
-      const salida = document.getElementById('fecha-salida')?.value;
-
-      let mensaje = `Hola! Me gustaría consultar disponibilidad para ${alojamiento}`;
-      if (ingreso) mensaje += `, ingreso: ${ingreso}`;
-      if (salida) mensaje += `, salida: ${salida}`;
-      mensaje += '.';
-
-      return `https://wa.me/+5491138587048?text=${encodeURIComponent(mensaje)}`;
-    }
-
-    document.getElementById('btn-casita')?.addEventListener('click', (e) => {
-      e.preventDefault();
-      window.open(buildWhatsAppLink('La Casita'), '_blank');
-    });
-
-    document.getElementById('btn-container')?.addEventListener('click', (e) => {
-      e.preventDefault();
-      window.open(buildWhatsAppLink('El Container'), '_blank');
-    });
-  </script>
 </Layout>
+
+<script>
+  function buildWhatsAppLink(alojamiento) {
+    const ingreso = document.getElementById('fecha-ingreso')?.value;
+    const salida = document.getElementById('fecha-salida')?.value;
+
+    let mensaje = `Hola! Me gustaría consultar disponibilidad para ${alojamiento}`;
+    if (ingreso) mensaje += `, ingreso: ${ingreso}`;
+    if (salida) mensaje += `, salida: ${salida}`;
+    mensaje += '.';
+
+    return `https://wa.me/+5491138587048?text=${encodeURIComponent(mensaje)}`;
+  }
+
+  document.getElementById('btn-casita')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.open(buildWhatsAppLink('La Casita'), '_blank');
+  });
+
+  document.getElementById('btn-container')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.open(buildWhatsAppLink('El Container'), '_blank');
+  });
+</script>
