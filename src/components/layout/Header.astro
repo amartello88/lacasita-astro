@@ -52,8 +52,22 @@ const links = [
       </a>
     </div>
 
+    <!-- Nav desktop -->
+    <nav class="hidden items-center gap-8 lg:flex">
+      {
+        links.map((link) => (
+          <a
+            href={link.href}
+            class="border-b-2 border-transparent pb-1 text-sm font-medium uppercase tracking-widest text-primary-950/70 transition hover:border-primary-950 hover:text-primary-950 dark:text-primary-200/70 dark:hover:border-primary-200 dark:hover:text-primary-200"
+          >
+            {link.name}
+          </a>
+        ))
+      }
+    </nav>
+
     <!-- Actions -->
-    <div class="-mr-2 flex items-center space-x-2 sm:space-x-3">
+    <div class="-mr-2 flex items-center space-x-2 sm:space-x-3 lg:hidden">
       <!-- Toggle menu -->
       <button
         type="button"
@@ -93,25 +107,16 @@ const links = [
     </div>
   </div>
 
-  <!-- Menu content -->
+  <!-- Menu content (solo mobile) -->
   <div
-    class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8"
+    class="mx-auto max-w-2xl px-4 sm:px-6 lg:hidden lg:max-w-7xl lg:px-8"
     id="website-menu"
     x-cloak
     x-show="open"
     x-collapse
     x-collapse.duration.500ms
   >
-    <div class="grid grid-cols-1 gap-16 pb-24 pt-6 lg:grid-cols-2 lg:pt-12">
-      <!-- Foto -->
-      <div class="hidden overflow-hidden rounded-3xl lg:block">
-        <img
-          src="https://plus.unsplash.com/premium_photo-1669933015586-b95650b47701?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          alt="pine"
-          class="h-full w-full object-cover"
-        />
-      </div>
-
+    <div class="grid grid-cols-1 gap-16 pb-24 pt-6">
       <!-- Navigation -->
       <nav class="flex flex-col gap-1 divide-y divide-primary-900/10 dark:divide-primary-300/10">
         {
