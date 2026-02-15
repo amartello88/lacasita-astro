@@ -31,7 +31,7 @@ const images = [
     alt: 'Lago',
   },
   {
-    src: 'https://images.unsplash.com/photo-1510784722466-f2aa240312d8?w=800&auto=format&fit=crop',
+    src: 'https://images.unsplash.com/photo-1548013146-72479768bada?w=800&auto=format&fit=crop',
     alt: 'Cielo',
   },
   {
@@ -60,7 +60,9 @@ const images = [
         {
           images.map((image, index) => (
             <button
-              class="gallery-item group relative aspect-square overflow-hidden rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-950 dark:focus-visible:ring-primary-200"
+              class={`gallery-item group relative aspect-square overflow-hidden rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-950 dark:focus-visible:ring-primary-200 ${
+                index === 8 ? 'hidden sm:block' : ''
+              }`}
               data-src={image.src}
               data-index={index}
             >
