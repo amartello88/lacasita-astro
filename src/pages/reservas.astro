@@ -202,6 +202,82 @@ import Layout from '../layouts/Layout.astro';
           Consultanos por WhatsApp
         </a>
       </div>
+
+      <!-- Información importante -->
+      <div
+        class="mt-6 flex flex-col gap-8 rounded-3xl bg-primary-500/10 p-8 dark:bg-primary-400/10"
+      >
+        <h3 class="text-xl font-medium tracking-tight">Información importante</h3>
+
+        <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          <!-- Adicional mascota -->
+          <div class="flex flex-col gap-3">
+            <div class="flex items-center gap-2">
+              <span class="text-xl">🐾</span>
+              <p class="font-medium">Adicional mascota</p>
+            </div>
+            <p class="text-sm text-primary-950/70 dark:text-primary-200/70">
+              $40.000 ARS por estadía.
+            </p>
+          </div>
+
+          <!-- Reglas de la casa -->
+          <div class="flex flex-col gap-3">
+            <div class="flex items-center gap-2">
+              <span class="text-xl">📋</span>
+              <p class="font-medium">Reglas de la casa</p>
+            </div>
+            <p class="text-sm text-primary-950/70 dark:text-primary-200/70">
+              No se aceptan personas ajenas a la reserva.
+            </p>
+          </div>
+
+          <!-- Estadía mínima -->
+          <div class="flex flex-col gap-3">
+            <div class="flex items-center gap-2">
+              <span class="text-xl">🗓️</span>
+              <p class="font-medium">Estadía mínima</p>
+            </div>
+            <p class="text-sm text-primary-950/70 dark:text-primary-200/70">3 noches.</p>
+          </div>
+
+          <!-- Modo de reserva -->
+          <div class="flex flex-col gap-3 sm:col-span-2 lg:col-span-3">
+            <div class="flex items-center gap-2">
+              <span class="text-xl">💳</span>
+              <p class="font-medium">Modo de reserva</p>
+            </div>
+            <p class="text-sm text-primary-950/70 dark:text-primary-200/70">
+              Se abona el 50% de seña por transferencia bancaria para confirmar la reserva, y el
+              saldo restante de la misma forma al llegar.
+            </p>
+            <p class="text-sm text-primary-950/70 dark:text-primary-200/70">
+              Una vez realizada la transferencia, podés enviar el comprobante a <a
+                href="mailto:lacasitavlapatagonia@gmail.com"
+                class="font-medium underline hover:text-primary-950 dark:hover:text-primary-200"
+                >lacasitavlapatagonia@gmail.com</a
+              >. Te enviaremos la confirmación de reserva y la facturación correspondiente por el
+              mismo medio.
+            </p>
+          </div>
+        </div>
+
+        <!-- Aviso contacto -->
+        <div class="border-t border-primary-900/10 pt-6 dark:border-primary-300/10">
+          <p class="text-sm text-primary-950/60 dark:text-primary-200/60">
+            <span class="font-medium text-primary-950 dark:text-primary-200"
+              >⚠️ Canales oficiales de contacto:</span
+            > solo nos comunicamos a través del mail <a
+              href="mailto:lacasitavlapatagonia@gmail.com"
+              class="font-medium underline hover:text-primary-950 dark:hover:text-primary-200"
+              >lacasitavlapatagonia@gmail.com</a
+            > y el WhatsApp que aparece en esta página.
+          </p>
+          <p class="mt-1 text-sm font-medium text-primary-950 dark:text-primary-200">
+            No tenemos otros medios de contacto.
+          </p>
+        </div>
+      </div>
     </div>
   </section>
 </Layout>
