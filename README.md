@@ -25,25 +25,6 @@ npm run build
 
 This builds the app for production to the `./dist/` folder.
 
-## Project Structure
-
-Inside the project, you'll see the following folders and files:
-
-```
-/
-├── public/
-├── src/
-│   ├── components/
-│   ├── layouts/
-│   └── pages/
-├── .prettierrc
-├── astro.config.mjs
-├── package-lock.json
-├── package.json
-├── README.md
-├── tailwind.config.cjs
-└── tsconfig.json
-```
 
 - `public/*` - Any static assets (images, fonts, icons, ...)
 - `src/*` - Project source code (components, pages, ...)
