@@ -1,0 +1,198 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const images = [
+  {
+    src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&auto=format&fit=crop',
+    alt: 'La Casita Patagonia',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800&auto=format&fit=crop',
+    alt: 'Patagonia',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1501854140801-50d01698950b?w=800&auto=format&fit=crop',
+    alt: 'Naturaleza Patagonia',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=800&auto=format&fit=crop',
+    alt: 'Paisaje',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&auto=format&fit=crop',
+    alt: 'Montaña',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=800&auto=format&fit=crop',
+    alt: 'Bosque',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1540390769625-2fc3f8b1d50c?w=800&auto=format&fit=crop',
+    alt: 'Lago',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1510784722466-f2aa240312d8?w=800&auto=format&fit=crop',
+    alt: 'Cielo',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99?w=800&auto=format&fit=crop',
+    alt: 'Nieve',
+  },
+];
+---
+
+<Layout
+  description="Galería de imágenes de La Casita y El Container en Villa la Angostura, Patagonia."
+  title="About · La Casita & El Container"
+>
+  <section class="py-16 sm:py-20">
+    <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+      <!-- Título -->
+      <div class="mb-12 flex flex-col gap-4">
+        <h1 class="text-4xl font-medium tracking-tight sm:text-5xl">Galería</h1>
+        <p class="max-w-xl text-lg text-primary-950/70 dark:text-primary-200/70 sm:text-xl">
+          Villa la Angostura, Patagonia.
+        </p>
+      </div>
+
+      <!-- Grid galería -->
+      <div class="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-3">
+        {
+          images.map((image, index) => (
+            <button
+              class="gallery-item group relative aspect-square overflow-hidden rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-950 dark:focus-visible:ring-primary-200"
+              data-src={image.src}
+              data-index={index}
+            >
+              <img
+                src={image.src}
+                alt={image.alt}
+                class="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-primary-950/0 transition duration-300 group-hover:bg-primary-950/20" />
+            </button>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="bg-black/90 fixed inset-0 z-50 hidden items-center justify-center p-4">
+    <!-- Cerrar -->
+    <button
+      id="lightbox-close"
+      class="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-white/20"
+      aria-label="Cerrar"
+    >
+      <svg
+        class="h-6 w-6"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+      >
+        <path
+          d="M12.0007 10.5865L16.9504 5.63672L18.3646 7.05093L13.4149 12.0007L18.3646 16.9504L16.9504 18.3646L12.0007 13.4149L7.05093 18.3646L5.63672 16.9504L10.5865 12.0007L5.63672 7.05093L7.05093 5.63672L12.0007 10.5865Z"
+        ></path>
+      </svg>
+    </button>
+
+    <!-- Anterior -->
+    <button
+      id="lightbox-prev"
+      class="absolute left-4 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-white/20"
+      aria-label="Anterior"
+    >
+      <svg
+        class="h-6 w-6"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+      >
+        <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path>
+      </svg>
+    </button>
+
+    <!-- Imagen -->
+    <img
+      id="lightbox-img"
+      src=""
+      alt=""
+      class="max-h-[90vh] max-w-[90vw] rounded-xl object-contain shadow-2xl"
+    />
+
+    <!-- Siguiente -->
+    <button
+      id="lightbox-next"
+      class="absolute right-4 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-white/20"
+      aria-label="Siguiente"
+    >
+      <svg
+        class="h-6 w-6"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+      >
+        <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path>
+      </svg>
+    </button>
+  </div>
+</Layout>
+
+<script>
+  const images = [...document.querySelectorAll('.gallery-item')].map((el) => ({
+    src: el.getAttribute('data-src') || '',
+    alt: el.querySelector('img')?.alt || '',
+  }));
+
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img') as HTMLImageElement;
+  let current = 0;
+
+  function openLightbox(index: number) {
+    current = index;
+    lightboxImg.src = images[current].src;
+    lightboxImg.alt = images[current].alt;
+    lightbox?.classList.remove('hidden');
+    lightbox?.classList.add('flex');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    lightbox?.classList.add('hidden');
+    lightbox?.classList.remove('flex');
+    document.body.style.overflow = '';
+  }
+
+  function prev() {
+    current = (current - 1 + images.length) % images.length;
+    lightboxImg.src = images[current].src;
+    lightboxImg.alt = images[current].alt;
+  }
+
+  function next() {
+    current = (current + 1) % images.length;
+    lightboxImg.src = images[current].src;
+    lightboxImg.alt = images[current].alt;
+  }
+
+  document.querySelectorAll('.gallery-item').forEach((btn, i) => {
+    btn.addEventListener('click', () => openLightbox(i));
+  });
+
+  document.getElementById('lightbox-close')?.addEventListener('click', closeLightbox);
+  document.getElementById('lightbox-prev')?.addEventListener('click', prev);
+  document.getElementById('lightbox-next')?.addEventListener('click', next);
+
+  lightbox?.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox?.classList.contains('flex')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') prev();
+    if (e.key === 'ArrowRight') next();
+  });
+</script>

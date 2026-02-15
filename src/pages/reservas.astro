@@ -108,7 +108,6 @@ import Layout from '../layouts/Layout.astro';
             </a>
           </div>
         </div>
-        <!-- Fin La Casita -->
 
         <!-- El Container -->
         <div class="flex flex-col gap-6 rounded-3xl bg-primary-500/10 p-8 dark:bg-primary-400/10">
@@ -178,9 +177,7 @@ import Layout from '../layouts/Layout.astro';
             </a>
           </div>
         </div>
-        <!-- Fin El Container -->
       </div>
-      <!-- Fin grid alojamientos -->
 
       <!-- Estadías mensuales -->
       <div
@@ -209,8 +206,8 @@ import Layout from '../layouts/Layout.astro';
       >
         <h3 class="text-xl font-medium tracking-tight">Información importante</h3>
 
-        <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          <!-- Adicional mascota -->
+        <div class="grid grid-cols-1 gap-8 sm:grid-cols-3">
+          <!-- Col 1: Adicional mascota -->
           <div class="flex flex-col gap-3">
             <div class="flex items-center gap-2">
               <span class="text-xl">🐾</span>
@@ -221,28 +218,28 @@ import Layout from '../layouts/Layout.astro';
             </p>
           </div>
 
-          <!-- Reglas de la casa -->
-          <div class="flex flex-col gap-3">
-            <div class="flex items-center gap-2">
-              <span class="text-xl">📋</span>
-              <p class="font-medium">Reglas de la casa</p>
+          <!-- Col 2: Reglas + Estadía mínima juntas -->
+          <div class="flex flex-col gap-6">
+            <div class="flex flex-col gap-3">
+              <div class="flex items-center gap-2">
+                <span class="text-xl">📋</span>
+                <p class="font-medium">Reglas de la casa</p>
+              </div>
+              <p class="text-sm text-primary-950/70 dark:text-primary-200/70">
+                No se aceptan personas ajenas a la reserva.
+              </p>
             </div>
-            <p class="text-sm text-primary-950/70 dark:text-primary-200/70">
-              No se aceptan personas ajenas a la reserva.
-            </p>
+            <div class="flex flex-col gap-3">
+              <div class="flex items-center gap-2">
+                <span class="text-xl">🗓️</span>
+                <p class="font-medium">Estadía mínima</p>
+              </div>
+              <p class="text-sm text-primary-950/70 dark:text-primary-200/70">3 noches.</p>
+            </div>
           </div>
 
-          <!-- Estadía mínima -->
+          <!-- Col 3: Modo de reserva -->
           <div class="flex flex-col gap-3">
-            <div class="flex items-center gap-2">
-              <span class="text-xl">🗓️</span>
-              <p class="font-medium">Estadía mínima</p>
-            </div>
-            <p class="text-sm text-primary-950/70 dark:text-primary-200/70">3 noches.</p>
-          </div>
-
-          <!-- Modo de reserva -->
-          <div class="flex flex-col gap-3 sm:col-span-2 lg:col-span-3">
             <div class="flex items-center gap-2">
               <span class="text-xl">💳</span>
               <p class="font-medium">Modo de reserva</p>
@@ -252,7 +249,7 @@ import Layout from '../layouts/Layout.astro';
               saldo restante de la misma forma al llegar.
             </p>
             <p class="text-sm text-primary-950/70 dark:text-primary-200/70">
-              Una vez realizada la transferencia, podés enviar el comprobante a <a
+              Una vez realizada la transferencia, debés enviar el comprobante a <a
                 href="mailto:lacasitavlapatagonia@gmail.com"
                 class="font-medium underline hover:text-primary-950 dark:hover:text-primary-200"
                 >lacasitavlapatagonia@gmail.com</a
